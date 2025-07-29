@@ -310,10 +310,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetWidth: 1920
   targetHeight: 1080
-  forceFullscreen: 1
+  useBorderlessWindow: 1
   lockCursor: 1
   enableScaling: 1
   anchorPoint: {x: 0, y: 1}
+  enablePerformanceMode: 1
+  targetFrameRate: 30
+  disableVSync: 1
 --- !u!224 &333467355 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1137211993054420647, guid: dc90babb144ed48be916dfca705c9c43, type: 3}
@@ -822,6 +825,61 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2868168310548323343, guid: be6b871b45d5c4df0a57479c3840502d, type: 3}
   m_PrefabInstance: {fileID: 658204865}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &720929232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 720929234}
+  - component: {fileID: 720929233}
+  m_Layer: 0
+  m_Name: Optimize
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &720929233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720929232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791b8c7abf0d9ea47b94723c10c6030e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enablePerformanceMode: 1
+  targetFrameRate: 30
+  disableVSync: 1
+  optimizeForSignage: 1
+  enableGarbageCollection: 1
+  garbageCollectionInterval: 600
+  enableMemoryMonitoring: 1
+  memoryThreshold: 150
+  disableShadows: 1
+  disablePostProcessing: 1
+  optimizeLights: 1
+--- !u!4 &720929234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720929232}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &757265157
 GameObject:
   m_ObjectHideFlags: 0
@@ -2001,3 +2059,4 @@ SceneRoots:
   - {fileID: 330585546}
   - {fileID: 563062613}
   - {fileID: 1478918680}
+  - {fileID: 720929234}

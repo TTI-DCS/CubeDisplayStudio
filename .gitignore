@@ -55,6 +55,9 @@ sysinfo.txt
 *.unitypackage
 *.app
 
+# Distribution builds
+[Dd]istribution/
+
 # Crashlytics generated file
 crashlytics-build.properties
 

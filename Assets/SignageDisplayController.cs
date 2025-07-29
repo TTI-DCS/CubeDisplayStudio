@@ -16,6 +16,11 @@ public class SignageDisplayController : MonoBehaviour
     [SerializeField] private bool enableScaling = true;
     [SerializeField] private Vector2 anchorPoint = new Vector2(0, 1); // Top-left anchor
     
+    [Header("Performance Settings")]
+    [SerializeField] private bool enablePerformanceMode = true;
+    [SerializeField] private int targetFrameRate = 30;
+    [SerializeField] private bool disableVSync = true;
+    
     private Camera mainCamera;
     private Canvas canvas;
     private RectTransform canvasRectTransform;
@@ -52,6 +57,12 @@ public class SignageDisplayController : MonoBehaviour
     
     void Awake()
     {
+        // パフォーマンス最適化
+        if (enablePerformanceMode)
+        {
+            ApplyPerformanceSettings();
+        }
+        
         // ウィンドウモード設定
         Screen.fullScreen = false;
         
@@ -271,6 +282,26 @@ public class SignageDisplayController : MonoBehaviour
         PositionWindowToTopLeft();
         
         Debug.Log("Window setup completed");
+    }
+    
+    // パフォーマンス設定を適用
+    void ApplyPerformanceSettings()
+    {
+        // フレームレート設定
+        Application.targetFrameRate = targetFrameRate;
+        
+        // VSync設定
+        if (disableVSync)
+        {
+            QualitySettings.vSyncCount = 0;
+        }
+        
+        // メモリ最適化
+        System.GC.Collect();
+        System.GC.WaitForPendingFinalizers();
+        System.GC.Collect();
+        
+        Debug.Log($"Performance settings applied - Target FPS: {targetFrameRate}, VSync: {!disableVSync}");
     }
     
     // エディタでのプレビュー用
